@@ -18,7 +18,7 @@ const Login = () => {
         // IdP data available using getAdditionalUserInfo(result)
         // ...
         console.log(user);
-        setName(user.displayName);
+        setName(user);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -33,7 +33,8 @@ const Login = () => {
   };
   return (
     <>
-      <h1>hola: {name}</h1>
+      {name && <h1>hola: {name.displayName}</h1>}
+      <img src={name.photoURL} alt="" />
       <button onClick={HandleLogin}>Login</button>
     </>
   );
